@@ -1,10 +1,11 @@
-package es4; // Definisce il package del programma
+package additionMenuDemo; // Definisce il package del programma
 
 import java.util.*; // Importa tutte le classi del package java.util (serve per usare Scanner)
 
 public class Main { // Classe principale del programma
     public static void main(String[] args) { // Metodo main: punto di partenza del programma
 
+        @SuppressWarnings("resource")
         Scanner input = new Scanner(System.in); // Scanner per leggere input da tastiera
         int num1, num2; // Variabili per memorizzare i due numeri da sommare
         int choice; // Variabile per memorizzare la scelta dell'utente dal menu

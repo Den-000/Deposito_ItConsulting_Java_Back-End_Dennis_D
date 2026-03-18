@@ -1,4 +1,4 @@
-package es6;
+package accountManagementDemo_consequentialSwitch;
 
 // Classe Account per gestire i dati dell'utente
 class Account {

@@ -1,4 +1,4 @@
-package es5; // Definisce il package del programma
+package multiOptionMenu; // Definisce il package del programma
 
 import java.util.*; // Importa tutte le classi del pacchetto java.util (serve per usare Scanner)
 
@@ -8,6 +8,7 @@ public class Main { // Classe principale del programma
         boolean loop = true; // Variabile booleana per controllare il ciclo del menu
         int choice; // Variabile che conterrà la scelta dell'utente
 
+        @SuppressWarnings("resource")
         Scanner inputChoice = new Scanner(System.in); // Scanner per leggere la scelta dal menu
 
         // Ciclo che continua finché loop è true
