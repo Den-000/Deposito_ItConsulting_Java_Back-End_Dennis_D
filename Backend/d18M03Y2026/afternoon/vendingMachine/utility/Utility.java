@@ -1,17 +1,18 @@
-package d18M3Y2026.afternoon.vendingMachine.utility;
+package d18M03Y2026.afternoon.vendingMachine.utility;
 
 import java.util.Scanner;
 
 public class Utility {
     
-    // Chiede un input integer e verifica validità
+    // Metodo per leggere un intero con controllo errori
     @SuppressWarnings("resource")
     public static int askInt() {
         Scanner scanner = new Scanner(System.in);
+
         while (true) {
             try {
-                String input = scanner.nextLine();
-                int value = Integer.parseInt(input); // Converte stringa in int
+                String input = scanner.nextLine(); // Legge input come stringa
+                int value = Integer.parseInt(input); // Converte in intero
                 return value;
             } catch (NumberFormatException e) {
                 System.out.println("Errore: inserisci un numero intero valido.");
@@ -19,14 +20,15 @@ public class Utility {
         }
     }
 
-    // Chiede un input double e verifica validità
+    // Metodo per leggere un double con controllo errori
     @SuppressWarnings("resource")
     public static double askDouble() {
         Scanner scanner = new Scanner(System.in);
+
         while (true) {
             try {
                 String input = scanner.nextLine();
-                double value = Double.parseDouble(input); // Converte stringa in double
+                double value = Double.parseDouble(input); // Converte in double
                 return value;
             } catch (NumberFormatException e) {
                 System.out.println("Errore: inserisci un numero decimale valido.");
@@ -34,7 +36,7 @@ public class Utility {
         }
     }
 
-    // Chiede un input stringa (nessun controllo sul tipo)
+    // Metodo per leggere una stringa (senza controlli)
     @SuppressWarnings("resource")
     public static String askString() {
         Scanner scanner = new Scanner(System.in);
