@@ -41,14 +41,14 @@ public class Main {
                     break;
                 case 2:
                     int maxGrade = findMaxGrade(grades);
-                    System.out.println("Il voto più alto è: " + maxGrade);
+                    System.out.println("Il voto più alto è: " + maxGrade); // Mostra voto più alto
                     break;
                 case 3:
                     int minGrade = findMinGrade(grades);
-                    System.out.println("Il voto più basso è: " + minGrade);
+                    System.out.println("Il voto più basso è: " + minGrade); // Mostra voto più basso
                     break;
                 case 4:
-                    double avgForPass = calculateAverage(grades);
+                    double avgForPass = calculateAverage(grades); // Controlla se la classe è stata promossa (in media)
                     checkPass(avgForPass);
                     break;
                 case 5:
