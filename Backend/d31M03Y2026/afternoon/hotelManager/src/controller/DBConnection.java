@@ -1,4 +1,4 @@
-package d31M03Y2026.afternoon.hotelManager.controller;
+package d31M03Y2026.afternoon.hotelManager.src.controller;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

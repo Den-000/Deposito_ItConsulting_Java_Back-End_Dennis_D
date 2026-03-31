@@ -1,8 +1,8 @@
-package d31M03Y2026.afternoon.hotelManager.controller;
+package d31M03Y2026.afternoon.hotelManager.src.controller;
 
 import java.sql.*;
 import java.util.*;
-import d31M03Y2026.afternoon.hotelManager.model.*;
+import d31M03Y2026.afternoon.hotelManager.src.model.*;
 
 public class HotelController {
 

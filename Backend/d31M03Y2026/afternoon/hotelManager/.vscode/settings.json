@@ -1,0 +1,6 @@
+{
+    "java.project.referencedLibraries": [
+        "lib/**/*.jar",
+        "Backend/d31M03Y2026/afternoon/hotelManager/lib/mysql-connector-j-9.6.0.jar"
+    ]
+}

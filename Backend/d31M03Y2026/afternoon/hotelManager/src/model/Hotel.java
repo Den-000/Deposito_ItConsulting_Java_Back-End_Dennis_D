@@ -1,4 +1,4 @@
-package d31M03Y2026.afternoon.hotelManager.model;
+package d31M03Y2026.afternoon.hotelManager.src.model;
 
 import java.util.ArrayList;
 

@@ -1,4 +1,4 @@
-package d31M03Y2026.afternoon.hotelManager.view;
+package d31M03Y2026.afternoon.hotelManager.src.view;
 
 public class View {
 
