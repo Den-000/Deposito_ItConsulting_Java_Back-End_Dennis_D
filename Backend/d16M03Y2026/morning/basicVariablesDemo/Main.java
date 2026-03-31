@@ -4,6 +4,7 @@ package d16M03Y2026.morning.basicVariablesDemo;
 public class Main {
 
     // Metodo principale
+    @SuppressWarnings("unused")
     public static void main(String[] args) {
 
         // Dichiarazione ed inizializzazione di una variabile intera
@@ -33,7 +34,7 @@ public class Main {
 
         // ERRORE: non è possibile modificare una variabile final
         // Questa riga causerebbe un errore di compilazione
-        CHAR = 'B';
+        // CHAR = 'B';  Esempio di errore: cannot assign a value to final variable CHAR
 
         // Dichiarazione e inizializzazione di una stringa
         String firstPartOfThePhrase = "Hello";

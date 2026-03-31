@@ -7,8 +7,8 @@ import d31M03Y2026.afternoon.hotelManager.src.view.*;
 public class Main {
 
     // Al momento viene aggiornato solo il db, gli oggetti Hotel e Room rimangono a morire nell'etere della heap memory
-    // TODO Aggiungere check sugli input prima di salvare nel DB
-    // TODO Aggiungere casistica → Hotel non presente
+    // Aggiungere check sugli input prima di salvare nel DB
+    // Aggiungere casistica → Hotel non presente
     public static void main(String[] args) {
 
         HotelController controller = new HotelController();
