@@ -34,6 +34,21 @@ public class Utility {
         }
     }
 
+    // Chiede un input double e verifica validità
+    @SuppressWarnings("resource")
+    public static float askFloat() {
+        Scanner scanner = new Scanner(System.in);
+        while (true) {
+            try {
+                String input = scanner.nextLine();
+                float value = Float.parseFloat(input); // Converte stringa in float
+                return value;
+            } catch (NumberFormatException e) {
+                System.out.println("Errore: inserisci un numero decimale valido.");
+            }
+        }
+    }
+
     // Chiede un input stringa (nessun controllo sul tipo)
     @SuppressWarnings("resource")
     public static String askString() {
