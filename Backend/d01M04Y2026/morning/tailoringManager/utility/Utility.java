@@ -1,4 +1,4 @@
-package template.utility;
+package tailoringManager.utility;
 
 import java.util.Scanner;
 
@@ -49,7 +49,6 @@ public class Utility {
         }
     }
 
-    // Chiede un input boolean e verifica validità (accetta true/false, s/n, y/n)
     @SuppressWarnings("resource")
     public static boolean askBoolean() {
         Scanner scanner = new Scanner(System.in);
