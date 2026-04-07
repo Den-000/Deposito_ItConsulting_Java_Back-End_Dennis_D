@@ -18,5 +18,9 @@
         "titleBar.inactiveBackground": "#27254c99",
         "titleBar.inactiveForeground": "#e7e7e799"
     },
-    "peacock.color": "#27254c"
+    "peacock.color": "#27254c",
+    "java.project.referencedLibraries": [
+        "lib/**/*.jar",
+        "Backend/d07M04Y2026/morning/dbManagerSingleton/lib/mysql-connector-j-9.6.0.jar"
+    ]
 }
