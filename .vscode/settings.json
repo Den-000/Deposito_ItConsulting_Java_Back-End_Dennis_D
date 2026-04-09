@@ -22,5 +22,8 @@
     "java.project.referencedLibraries": [
         "lib/**/*.jar",
         "Backend/d07M04Y2026/afternoon/testObserver3/lib/mysql-connector-j-9.6.0.jar"
+    ],
+    "cSpell.words": [
+        "degl'ordini"
     ]
 }
