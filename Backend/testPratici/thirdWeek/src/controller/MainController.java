@@ -1,89 +1,78 @@
 package controller;
 
-import controller.service.AccountDAO;
-import model.accountModel.Account;
-import model.factory.accountFactory.AccountFactory;
-import model.factory.accountFactory.AdminFactory;
-import model.factory.accountFactory.UserFactory;
+import controller.facade.AuthFacade;
+import model.accountModel.*;
 import view.MainView;
 import view.UserView;
 import view.utility.Utility;
 
 public abstract class MainController {
 
-    private AccountDAO accountDAO = new AccountDAO();
+    protected AuthFacade authFacade = new AuthFacade();
 
-    public Account handleLoginMenu(int choice) {
-        MainView view = new UserView();
-        AccountFactory accountFactory = new UserFactory();
-
-        Account account = null;
+    public Account handleLoginMenu(int choice, MainView view, Account account) {
 
         switch (choice) {
 
-            case 1: // LOGIN
+            case 1 -> { // LOGIN
+
                 view.print("Email: ");
                 String email = Utility.askString();
 
                 view.print("Password: ");
                 String password = Utility.askString();
 
-                Account accountFound = accountDAO.findByEmail(email);
+                Account result = authFacade.login(email, password);
 
-                if (accountFound != null && accountFound.getPassword().equals(password)) {
+                if (result != null) {
+                    account = result;
                     view.println("Login effettuato!");
-                    account = accountFound;
                 } else {
                     view.println("Credenziali errate!");
                 }
-                break;
+            }
 
-            case 2: // REGISTRAZIONE
+            case 2 -> { // REGISTER
+
                 view.print("Username: ");
-                String newUsername = Utility.askString();
+                String username = Utility.askString();
 
                 view.print("Email: ");
-                String newEmail = Utility.askString();
+                String email = Utility.askString();
 
                 view.print("Password: ");
-                String newPassword = Utility.askString();
+                String password = Utility.askString();
 
-                Account newAccount = accountFactory.createAccount(
-                        newUsername,
-                        newEmail,
-                        newPassword
-                );
+                authFacade.register(username, email, password);
 
-                // Salva nel DB
-                accountDAO.create(newAccount);
+                view.println("Registrazione completata!");
+            }
 
-                view.println("Registrazione completata! Ora puoi effettuare il login.");
-                break;
-
-            default:
-                view.println("Scelta non valida.");
+            default -> view.println("Scelta non valida");
         }
 
         return account;
     }
 
-    // Metodo per mostrare il menu principale in base al tipo di account
-    public void adaptView(Account account, MainView view) {
-        if (account instanceof AdminFactory) {
-            // view = new AdminView();
-        }
-        else {
-            view = new UserView();
+    // VIEW ADAPTATION (migliorabile ma ok per ora)
+    public MainView adaptView(Account account) {
+
+        if (account instanceof Admin) {
+            // return new AdminView();
         }
 
+        return new UserView();
     }
 
-    public void adaptController(Account account, MainController controller) {
-        if (account instanceof AdminFactory) {
-            // controller = new AdminController();
+    // CONTROLLER ADAPTATION
+    public MainController adaptController(Account account) {
+
+        if (account instanceof Admin) {
+            // return new AdminController();
         }
-        else {
-            controller = new UserController();
-        }
+
+        return new UserController();
     }
+
+    public abstract void handleMainMenuChoice(int choice, MainView view);
 }

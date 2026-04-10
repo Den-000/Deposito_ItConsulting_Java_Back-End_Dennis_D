@@ -13,9 +13,9 @@ public class AccountDAO implements ICrud<Account> {
 
     // CREATE
     public void create(Account account) {
-        String sql = "INSERT INTO account (username, email, password, role) VALUES (?, ?, ?, ?)";
+        String sql = "INSERT INTO accounts (username, email, password, role) VALUES (?, ?, ?, ?)";
 
-        try (Connection conn = DBConnection.getInstance().getConnection();
+        try (Connection conn = DBConnection.getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
 
             stmt.setString(1, account.getUsername());
@@ -32,9 +32,9 @@ public class AccountDAO implements ICrud<Account> {
 
     // CERCA PER ID
     public Account findById(int id) {
-        String sql = "SELECT * FROM account WHERE id = ?";
+        String sql = "SELECT * FROM accounts WHERE id = ?";
 
-        try (Connection conn = DBConnection.getInstance().getConnection();
+        try (Connection conn = DBConnection.getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
 
             stmt.setInt(1, id);
@@ -53,9 +53,9 @@ public class AccountDAO implements ICrud<Account> {
 
     // CERCA PER USERNAME
     public Account findByUsername(String username) {
-        String sql = "SELECT * FROM account WHERE username = ?";
+        String sql = "SELECT * FROM accounts WHERE username = ?";
 
-        try (Connection conn = DBConnection.getInstance().getConnection();
+        try (Connection conn = DBConnection.getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
 
             stmt.setString(1, username);
@@ -74,9 +74,9 @@ public class AccountDAO implements ICrud<Account> {
 
     // CERCA PER EMAIL
     public Account findByEmail(String email) {
-        String sql = "SELECT * FROM account WHERE email = ?";
+        String sql = "SELECT * FROM accounts WHERE email = ?";
 
-        try (Connection conn = DBConnection.getInstance().getConnection();
+        try (Connection conn = DBConnection.getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
 
             stmt.setString(1, email);
@@ -96,9 +96,9 @@ public class AccountDAO implements ICrud<Account> {
     // CERCA PER RUOLO
     public List<Account> findByRole(String role) {
         List<Account> accounts = new ArrayList<>();
-        String sql = "SELECT * FROM account WHERE role = ?";
+        String sql = "SELECT * FROM accounts WHERE role = ?";
 
-        try (Connection conn = DBConnection.getInstance().getConnection();
+        try (Connection conn = DBConnection.getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
 
             stmt.setString(1, role);
@@ -118,9 +118,9 @@ public class AccountDAO implements ICrud<Account> {
     // UPDATE
     // TODO: Permettere di aggiornare solo alcuni campi (es. email e password) o tutti
     public void update(int id, Account account) {
-        String sql = "UPDATE account SET username = ?, email = ?, password = ?, role = ? WHERE id = ?";
+        String sql = "UPDATE accounts SET username = ?, email = ?, password = ?, role = ? WHERE id = ?";
 
-        try (Connection conn = DBConnection.getInstance().getConnection();
+        try (Connection conn = DBConnection.getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
 
             stmt.setString(1, account.getUsername());
@@ -138,9 +138,9 @@ public class AccountDAO implements ICrud<Account> {
 
     // DELETE
     public void delete(int id) {
-        String sql = "DELETE FROM account WHERE id = ?";
+        String sql = "DELETE FROM accounts WHERE id = ?";
 
-        try (Connection conn = DBConnection.getInstance().getConnection();
+        try (Connection conn = DBConnection.getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
 
             stmt.setInt(1, id);
@@ -154,9 +154,9 @@ public class AccountDAO implements ICrud<Account> {
     // FIND ALL
     public List<Account> findAll() {
         List<Account> accounts = new ArrayList<>();
-        String sql = "SELECT * FROM account";
+        String sql = "SELECT * FROM accounts";
 
-        try (Connection conn = DBConnection.getInstance().getConnection();
+        try (Connection conn = DBConnection.getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
 
             ResultSet rs = stmt.executeQuery();
