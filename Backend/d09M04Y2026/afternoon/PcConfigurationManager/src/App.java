@@ -115,6 +115,8 @@ public class App {
                                         }
                                     }
                                     break;
+                                
+                                // TODO - Aggiungere il case 4 per impostare la priorità di consegna
 
                                 case 9: // Conferma configurazione e pagamento 
                                 // TODO - Mostrare riepilogo prima di confermare, chiedere conferma, etc. e tornare al menu principale dopo il pagamento
