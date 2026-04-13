@@ -25,5 +25,9 @@
     ],
     "cSpell.words": [
         "degl'ordini"
+    ],
+    "java.project.sourcePaths": [
+        "Backend/testPratici/thirdWeek/src",
+        "Backend/d13M04Y2026/afternoon"
     ]
 }
