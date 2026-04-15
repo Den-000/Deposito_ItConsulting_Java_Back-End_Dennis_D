@@ -29,5 +29,6 @@
     "java.project.sourcePaths": [
         "Backend/testPratici/thirdWeek/src",
         "Backend/d13M04Y2026/afternoon"
-    ]
+    ],
+    "java.compile.nullAnalysis.mode": "automatic"
 }

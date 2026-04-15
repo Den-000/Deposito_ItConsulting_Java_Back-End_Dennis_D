@@ -1,0 +1,152 @@
+<project xmlns="http://maven.apache.org/POM/3.5.13"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/3.5.13 https://maven.apache.org/xsd/maven-3.5.13.xsd">
+
+    <!-- Versione del modello POM -->
+    <modelVersion>3.5.13</modelVersion>
+
+    <!-- ===============================
+         PARENT SPRING BOOT
+         =============================== -->
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>3.5.13</version>
+    </parent>
+    <!-- Gestisce:
+         - versioni delle dipendenze
+         - configurazioni di build
+         - compatibilità tra librerie -->
+
+    <!-- Identificativi del progetto -->
+    <groupId>com.security</groupId>
+    <artifactId>test</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <!-- groupId + artifactId identificativo univoco del progetto -->
+
+    <!-- Versione Java utilizzata -->
+    <properties>
+        <java.version>21</java.version>
+    </properties>
+
+    <!-- ===============================
+         DIPENDENZE
+         =============================== -->
+    <dependencies>
+
+        <!-- ===============================
+             SPRING WEB
+             =============================== -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <!-- Include:
+             - Tomcat embedded
+             - REST controller
+             - gestione HTTP -->
+
+        <!-- ===============================
+             SPRING SECURITY
+             =============================== -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+        </dependency>
+        <!-- Fornisce:
+             - autenticazione
+             - autorizzazione
+             - filtri sicurezza -->
+
+        <!-- ===============================
+             JPA (DATABASE ORM)
+             =============================== -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
+        <!-- Permette di:
+             - usare repository
+             - mappare entity → tabelle DB
+             - usare Hibernate -->
+
+        <!-- ===============================
+             DRIVER MYSQL
+             =============================== -->
+        <dependency>
+            <groupId>com.mysql</groupId>
+            <artifactId>mysql-connector-j</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+        <!-- Driver necessario per collegarsi a MySQL -->
+
+        <!-- ===============================
+             LOMBOK
+             =============================== -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <optional>true</optional>
+        </dependency>
+        <!-- Riduce codice fornendo annotazioni per:
+             - getter/setter
+             - costruttori
+             - toString
+        -->
+
+        <!-- ===============================
+             JWT (JSON WEB TOKEN)
+             =============================== -->
+
+        <!-- API principale -->
+        <dependency>
+            <groupId>io.jsonwebtoken</groupId>
+            <artifactId>jjwt-api</artifactId>
+            <version>0.11.5</version>
+        </dependency>
+
+        <!-- Implementazione runtime -->
+        <dependency>
+            <groupId>io.jsonwebtoken</groupId>
+            <artifactId>jjwt-impl</artifactId>
+            <version>0.11.5</version>
+            <scope>runtime</scope>
+        </dependency>
+
+        <!-- Supporto JSON (Jackson) -->
+        <dependency>
+            <groupId>io.jsonwebtoken</groupId>
+            <artifactId>jjwt-jackson</artifactId>
+            <version>0.11.5</version>
+            <scope>runtime</scope>
+        </dependency>
+
+        <!-- JWT serve per:
+             - creare token
+             - validare token
+             - leggere payload -->
+
+        <!-- ===============================
+             TESTING
+             =============================== -->
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <!-- Strumenti per test:
+             - JUnit
+             - Mockito
+             - test Spring -->
+
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <!-- Supporto test per Spring Security -->
+
+    </dependencies>
+
+</project>
