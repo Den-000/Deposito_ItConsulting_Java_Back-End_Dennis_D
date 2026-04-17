@@ -2,37 +2,47 @@ package com.example.demo.model;
 
 import java.time.LocalDateTime;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToOne;
-import jakarta.persistence.Table;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import jakarta.persistence.*;
+import lombok.*;
 
+/**
+ * ENTITÀ che rappresenta un pagamento effettuato.
+ */
 @Entity
-@Table(name = "payments") // nome tabella
-
-@Data // Lombok: genera getter, setter, toString, ecc.
+@Table(name = "payments")
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class Payment {
 
-    @Id @GeneratedValue
+    @Id
+    @GeneratedValue
     private Long id;
 
+    /**
+     * Importo pagato
+     */
     private double amount;
 
+    /**
+     * Stato del pagamento
+     */
     @Enumerated(EnumType.STRING)
     private PaymentStatus status;
 
-    private String method; // CARD, PAYPAL
+    /**
+     * Metodo di pagamento (es. CARD, PAYPAL)
+     */
+    private String method;
 
+    /**
+     * Data del pagamento
+     */
     private LocalDateTime paymentDate;
 
+    /**
+     * Ticket associato al pagamento
+     */
     @OneToOne
     private Ticket ticket;
 }

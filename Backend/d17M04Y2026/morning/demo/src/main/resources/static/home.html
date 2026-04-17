@@ -4,10 +4,11 @@
   <title>EventsManager Dashboard</title>
   <!-- CSS principale -->
   <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="data:,">
 </head>
 
 <!-- onload = esegue initApp appena la pagina è caricata -->
-<body onload="initApp()">
+<body>
 
 <!-- ================= SIDEBAR ================= -->
 <div class="sidebar">
@@ -16,7 +17,7 @@
 
   <!-- menu navigazione -->
    <!-- TODO da implementare -->
-  <div class="nav-item" onclick="loadAllEvents()">Eventi</div>
+  <div id="navEventsBtn" class="nav-item">Eventi</div>
   <div class="nav-item">I Miei Biglietti</div>
 
   <hr style="margin:10px 0">
@@ -46,53 +47,13 @@
     <!-- bottone tema -->
     <button class="topbar_btn" onclick="toggleTheme()">&#x1F314; Tema</button> <!-- 🌓 -->
     <!-- TODO Da implementare menù a tendina -->
-  <div onclick="logout()">&#x1F464; Logout</div> <!-- 👤 -->
+  <div id="topBarBtn">&#x1F464; Logout</div> <!-- 👤 -->
   </div>
 </div>
 
 <!-- ================= MAIN CONTENT ================= -->
 <div class="main" id="main">
 
-  <!-- TODO Dovranno comparire dinamicamente le liste dei todo (Da cambiare → i column dovranno contenere i div list con le task → optare per un div con display grid o n div con flex) -->
-  <div class="column">
-    <h3>Evento 1</h3>
-
-    <div class="task">
-      Partita di calcio <span class="badge high">96/100</span>
-    </div>
-  </div>
-
-  <div class="column">
-    <h3>Evento 2</h3>
-
-    <div class="task done">
-      Concerto <span class="badge low">647/647</span>
-    </div>
-  </div>
-
-  <div class="column">
-    <h3>Evento 3</h3>
-
-    <div class="task">
-      Film <span class="badge medium">20/70</span>
-    </div>
-  </div>
-
-  <div class="column">
-    <h3>Evento 1</h3>
-
-    <div class="task">
-      Partita di calcio <span class="badge high">96/100</span>
-    </div>
-  </div>
-
-  <div class="column">
-    <h3>Evento 1</h3>
-
-    <div class="task">
-      Partita di calcio <span class="badge high">96/100</span>
-    </div>
-  </div>
 
    <!-- ================= ADMIN PANEL ================= -->
   <!-- inizialmente nascosto → viene mostrato se logghi come admin -->
@@ -115,6 +76,6 @@
 </div>
 
 <!-- JS principale -->
-<script src="app.js"></script>
+<script type="module" src="app.js"></script>
 </body>
 </html>

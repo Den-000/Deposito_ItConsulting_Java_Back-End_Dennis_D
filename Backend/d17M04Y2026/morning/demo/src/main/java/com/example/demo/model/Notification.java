@@ -2,33 +2,41 @@ package com.example.demo.model;
 
 import java.time.LocalDateTime;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import jakarta.persistence.*;
+import lombok.*;
 
+/**
+ * ENTITÀ che rappresenta una notifica inviata all'utente.
+ */
 @Entity
-@Table(name = "notifications") // nome tabella
-
-@Data // Lombok: genera getter, setter, toString, ecc.
+@Table(name = "notifications")
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class Notification {
 
-    @Id @GeneratedValue
+    @Id
+    @GeneratedValue
     private Long id;
 
+    /**
+     * Email destinatario della notifica
+     */
     private String email;
 
+    /**
+     * Tipo di notifica (conferma, promemoria, ecc.)
+     */
     @Enumerated(EnumType.STRING)
     private NotificationType type;
 
+    /**
+     * Data e ora di invio
+     */
     private LocalDateTime sentAt;
 
+    /**
+     * Indica se l'invio è andato a buon fine
+     */
     private boolean success;
 }

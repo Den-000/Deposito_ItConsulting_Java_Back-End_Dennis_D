@@ -10,9 +10,14 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+/**
+ * ENTITÀ che registra ogni accesso (CHECK-IN) a un evento.
+ * 
+ * Serve per tracciare chi è entrato e quando.
+ */
 @Entity
 @Data
-@Table(name = "check_in_log")
+@Table(name = "check_in_logs")
 @NoArgsConstructor
 @AllArgsConstructor
 public class CheckInLog {
@@ -21,7 +26,13 @@ public class CheckInLog {
     @GeneratedValue
     private Long id;
 
+    /**
+     * QR code del biglietto utilizzato per l'accesso.
+     */
     private String qrCode;
 
+    /**
+     * Data e ora del check-in.
+     */
     private LocalDateTime checkInTime;
 }

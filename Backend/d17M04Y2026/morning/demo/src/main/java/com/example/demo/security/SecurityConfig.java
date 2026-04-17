@@ -56,12 +56,9 @@ public class SecurityConfig {
                 // La decisione finale sull'accesso viene fatta da:
                 // .anyRequest().authenticated()
                 .requestMatchers(
-                    "/login.html",
-                    "/register.html",
-                    "/home.html",
-                    "/auth.js",
-                    "/app.js",
-                    "/style.css",
+                    "/**/*.html",
+                    "/**/*.js",
+                    "/**/*.css",
                     "/favicon.ico",
                     "/auth/**"
                 ).permitAll()

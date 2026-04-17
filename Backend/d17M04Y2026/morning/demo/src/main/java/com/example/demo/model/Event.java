@@ -5,18 +5,16 @@ import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.Table;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import jakarta.persistence.*;
+import lombok.*;
 
+/**
+ * ENTITÀ che rappresenta un EVENTO.
+ * 
+ * Un evento può avere:
+ * - più tipi di biglietti
+ * - una location
+ */
 @Entity
 @Table(name = "events")
 @Data
@@ -28,20 +26,50 @@ public class Event {
     @GeneratedValue
     private Long id;
 
+    /**
+     * Nome dell'evento (es. "Concerto", "Conferenza")
+     */
     private String name;
+
+    /**
+     * Descrizione dettagliata dell'evento
+     */
     private String description;
 
+    /**
+     * Data e ora dell'evento
+     */
     private LocalDateTime date;
 
+    /**
+     * Stato dell'evento:
+     * ACTIVE, CANCELLED, FINISHED
+     */
     @Enumerated(EnumType.STRING)
     private EventStatus status;
 
+    /**
+     * Numero massimo di posti disponibili
+     */
     private int maxSeats;
+
+    /**
+     * Posti già prenotati
+     */
     private int bookedSeats;
 
+    /**
+     * Location dell'evento (relazione molti-a-uno)
+     */
     @ManyToOne
     private Location location;
 
+    /**
+     * Tipologie di biglietti associate all'evento
+     * (VIP, STANDARD, ecc.)
+     * 
+     * JsonIgnore evita loop infiniti nella serializzazione JSON
+     */
     @JsonIgnore
     @OneToMany(mappedBy = "event")
     private List<TicketType> ticketTypes;

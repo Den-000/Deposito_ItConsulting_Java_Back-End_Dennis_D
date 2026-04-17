@@ -1,14 +1,13 @@
 package com.example.demo.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Table;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import jakarta.persistence.*;
+import lombok.*;
 
+/**
+ * ENTITÀ che rappresenta un TIPO DI BIGLIETTO.
+ * 
+ * Esempi: VIP, STANDARD, EARLY ACCESS
+ */
 @Entity
 @Data
 @Table(name = "ticket_types")
@@ -16,14 +15,33 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class TicketType {
 
-    @Id @GeneratedValue
+    @Id
+    @GeneratedValue
     private Long id;
 
-    private String name; // VIP, STANDARD
+    /**
+     * Nome del tipo di biglietto
+     */
+    private String name;
+
+    /**
+     * Prezzo del biglietto
+     */
     private double price;
+
+    /**
+     * Numero totale di biglietti disponibili per questo tipo
+     */
     private int totalSeats;
+
+    /**
+     * Posti ancora disponibili
+     */
     private int availableSeats;
 
+    /**
+     * Evento a cui appartiene questo tipo di biglietto
+     */
     @ManyToOne
     private Event event;
 }
