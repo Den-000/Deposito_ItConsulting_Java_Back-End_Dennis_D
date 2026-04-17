@@ -16,7 +16,7 @@
 
   <!-- menu navigazione -->
    <!-- TODO da implementare -->
-  <div class="nav-item">Eventi</div>
+  <div class="nav-item" onclick="loadAllEvents()">Eventi</div>
   <div class="nav-item">I Miei Biglietti</div>
 
   <hr style="margin:10px 0">
@@ -26,14 +26,22 @@
 
   <!-- TODO Implementare onclick doCheckIn -->
   <button>Effettua Check-In</button>
+
+  <!-- TODO Da inserire footer -->
+
 </div>
 
 <!-- ================= TOPBAR ================= -->
 <div class="topbar">
 
-  <!-- TODO Implementare logica di ricerca -->
-  <input class="search" placeholder="Cerca evento">
+  <form id="searchForm" class="search-form">
+    <input id="searchInput" type="text" class="search" placeholder="Cerca evento">
 
+    <button type="submit" class="topbar_btn">
+      &#x1F50D; Cerca <!-- 🔍 -->
+    </button>
+  </form>
+  
   <div class="topbar-right">
     <!-- bottone tema -->
     <button class="topbar_btn" onclick="toggleTheme()">&#x1F314; Tema</button> <!-- 🌓 -->
@@ -43,7 +51,7 @@
 </div>
 
 <!-- ================= MAIN CONTENT ================= -->
-<div class="main">
+<div class="main" id="main">
 
   <!-- TODO Dovranno comparire dinamicamente le liste dei todo (Da cambiare → i column dovranno contenere i div list con le task → optare per un div con display grid o n div con flex) -->
   <div class="column">

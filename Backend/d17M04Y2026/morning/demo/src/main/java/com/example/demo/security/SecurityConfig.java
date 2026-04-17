@@ -62,6 +62,7 @@ public class SecurityConfig {
                     "/auth.js",
                     "/app.js",
                     "/style.css",
+                    "/favicon.ico",
                     "/auth/**"
                 ).permitAll()
 

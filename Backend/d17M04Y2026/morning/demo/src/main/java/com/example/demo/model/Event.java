@@ -3,6 +3,8 @@ package com.example.demo.model;
 import java.time.LocalDateTime;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -40,6 +42,7 @@ public class Event {
     @ManyToOne
     private Location location;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "event")
     private List<TicketType> ticketTypes;
 }

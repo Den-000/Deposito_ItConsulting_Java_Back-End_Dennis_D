@@ -90,6 +90,13 @@
     backdrop-filter: blur(10px); /* effetto glass */
   }
   
+  #searchForm {
+    width: 60%; /* larghezza relativa */
+    display: flex;
+    align-items: center;
+    gap: 10px; /* spazio tra input e bottone */
+  }
+
   /* campo ricerca */
   .search {
     width: 40%; /* larghezza relativa */
@@ -119,21 +126,34 @@
     border-radius: 8px;
     width: auto;
   }
-  
+
   /* =========================
-     AREA PRINCIPALE
-     ========================= */
-  .main {
+      AREA PRINCIPALE
+      ========================= */
+    .main {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(3, 1fr);
-    grid-column-gap: 20px;
-    grid-row-gap: 20px;
+    gap: 20px;
+  
     width: 100%;
-    margin-left: 270px; /* spazio per sidebar */
-    margin-right: 10px;
-    margin-top: 70px; /* spazio per topbar */
+    margin-left: 270px;
+    margin-top: 70px;
+  
+    align-content: start;
+  }
+  
+  /* mobile */
+  @media (max-width: 1000px) {
+    .main {
+      grid-template-columns: repeat(2, 1fr);
     }
+  }
+  
+  @media (max-width: 600px) {
+    .main {
+      grid-template-columns: 1fr;
+    }
+  }
   
   /* singola colonna (lista task) */
   .column {

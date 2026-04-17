@@ -5,6 +5,7 @@ import jakarta.servlet.http.*;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.web.authentication.WebAuthenticationDetailsSource;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 
@@ -45,34 +46,41 @@ public class JwtAuthFilter extends OncePerRequestFilter {
                                     FilterChain chain)
             throws ServletException, IOException {
 
-        // legge header Authorization
-        String header = request.getHeader("Authorization");
+        try {
 
-        if (header != null && header.startsWith("Bearer ")) {
+            String header = request.getHeader("Authorization");
 
-            // estrae token
-            String token = header.substring(7);
+            if (header != null && header.startsWith("Bearer ")) {
 
-            // estrae username dal JWT
-            String username = jwtService.extractUsername(token);
+                String token = header.substring(7);
 
-            if (username != null &&
-                SecurityContextHolder.getContext().getAuthentication() == null) {
+                String username = jwtService.extractUsername(token);
 
-                // carica utente dal DB
-                UserDetails user = userService.loadUserByUsername(username);
+                if (username != null &&
+                    SecurityContextHolder.getContext().getAuthentication() == null) {
 
-                // crea autenticazione Spring
-                UsernamePasswordAuthenticationToken auth =
-                        new UsernamePasswordAuthenticationToken(
-                                user, null, user.getAuthorities());
+                    UserDetails user = userService.loadUserByUsername(username);
 
-                // salva nel contesto sicurezza
-                SecurityContextHolder.getContext().setAuthentication(auth);
+                    UsernamePasswordAuthenticationToken auth =
+                            new UsernamePasswordAuthenticationToken(
+                                    user,
+                                    null,
+                                    user.getAuthorities()
+                            );
+
+                    auth.setDetails(
+                            new WebAuthenticationDetailsSource().buildDetails(request)
+                    );
+
+                    SecurityContextHolder.getContext().setAuthentication(auth);
+                }
             }
+
+        } catch (Exception e) {
+            System.out.println("JWT ERROR: " + e.getMessage());
+            SecurityContextHolder.clearContext();
         }
 
-        // continua catena filtri
         chain.doFilter(request, response);
     }
 }
