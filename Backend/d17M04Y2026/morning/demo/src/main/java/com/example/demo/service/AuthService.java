@@ -2,6 +2,7 @@ package com.example.demo.service;
 
 import com.example.demo.dto.*;
 import com.example.demo.model.MyUser;
+import com.example.demo.model.Role;
 import com.example.demo.repository.MyUserRepository;
 import com.example.demo.security.JwtService;
 import org.springframework.security.authentication.*;
@@ -46,7 +47,7 @@ public class AuthService {
 
         MyUser user = repo.findByUsername(req.getUsername()).orElseThrow();
 
-        String access = jwtService.generateToken(user.getUsername(), user.getRole());
+        String access = jwtService.generateToken(user.getUsername(), (user.getRole().name()));
         String refresh = refreshService.createToken(user.getUsername());
 
         return new AuthResponse(access, refresh);
@@ -63,7 +64,7 @@ public class AuthService {
         // password sempre hashata
         u.setPassword(encoder.encode(req.getPassword()));
 
-        u.setRole("USER");
+        u.setRole(Role.USER);
 
         repo.save(u);
     }

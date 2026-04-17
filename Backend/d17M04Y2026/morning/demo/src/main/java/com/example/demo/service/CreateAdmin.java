@@ -1,6 +1,7 @@
 package com.example.demo.service;
 
 import com.example.demo.model.MyUser;
+import com.example.demo.model.Role;
 import com.example.demo.repository.MyUserRepository;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
@@ -37,7 +38,7 @@ public class CreateAdmin {
             // PASSWORD DEVE ESSERE HASHATA
             admin.setPassword(encoder.encode("1234"));
 
-            admin.setRole("ADMIN");
+            admin.setRole(Role.ADMIN);
 
             repo.save(admin);
 

@@ -30,7 +30,7 @@ public class CustomUserDetailsService implements UserDetailsService {
         return User.builder()
                 .username(user.getUsername())
                 .password(user.getPassword())
-                .roles(user.getRole()) // Spring aggiunge ROLE_
+                .roles(user.getRole().name())  // Spring aggiunge ROLE_
                 .build();
     }
 }
