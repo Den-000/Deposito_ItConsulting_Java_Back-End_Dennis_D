@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>TaskFlow Dashboard</title>
+  <!-- CSS principale -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<!-- onload = esegue initApp appena la pagina è caricata -->
+<body onload="initApp()">
+
+<!-- ================= SIDEBAR ================= -->
+<div class="sidebar">
+  <!-- titolo app/logo -->
+  <h2>TaskFlow</h2>
+
+  <!-- menu navigazione -->
+   <!-- TODO da implementare -->
+  <div class="nav-item">Oggi</div>
+  <div class="nav-item">Calendario</div>
+  <div class="nav-item">Importanti</div>
+
+  <hr style="margin:10px 0">
+
+  <h4>Le mie liste</h4>
+  <!-- TODO Liste finte, da implementare liste dinamiche -->
+  <div class="nav-item">Lavoro</div>
+  <div class="nav-item">Personale</div>
+  <div class="nav-item">Studio</div>
+
+  <!-- TODO Implementare creazione lista (Form o semplicemente comparsa per barra d'input per il nome e pulsante crea) -->
+  <div class="nav-item">+ Nuova Lista</div>
+</div>
+
+<!-- ================= TOPBAR ================= -->
+<div class="topbar">
+
+  <!-- TODO Implementare logica di ricerca -->
+  <input class="search" placeholder="Cerca task">
+
+  <div>
+    <!-- bottone tema -->
+    <button onclick="toggleTheme()">&#x1F314; Tema</button> <!-- 🌓 -->
+    <!-- bottone nuova task (non implementato) -->
+    <button>+ Nuova Task</button>
+
+    <!-- TODO Da implementare menù a tendina -->
+    <div onclick="logout()">&#x1F464; Logout</div> <!-- 👤 -->
+  </div>
+</div>
+
+<!-- ================= MAIN CONTENT ================= -->
+<div class="main">
+
+  <!-- TODO Dovranno comparire dinamicamente le liste dei todo (Da cambiare → i column dovranno contenere i div list con le task → optare per un div con display grid o n div con flex) -->
+  <div class="column">
+    <h3>Lavoro</h3>
+
+    <div class="task">
+      Fix backend JWT <span class="badge high">HIGH</span>
+    </div>
+
+    <div class="task done">
+      Login API <span class="badge low">LOW</span>
+    </div>
+  </div>
+
+  <div class="column">
+    <h3>PERSONALE</h3>
+
+    <div class="task">
+      Palestra <span class="badge medium">MED</span>
+    </div>
+  </div>
+
+   <!-- ================= ADMIN PANEL ================= -->
+  <!-- inizialmente nascosto → viene mostrato se logghi come admin -->
+  <div id="adminPanel" class="admin-panel" style="display:none;">
+    <h3>&#x1F4CA; ADMIN PANEL</h3> <!-- 📊 -->
+
+    <!-- TODO I dati dovranno essere mostrati dinamicamente ed essere sincronizzati -->
+    <p>Utenti totali: 120</p>
+    <p>Attivi: 98</p>
+    <p>Admin: 5</p>
+
+    <hr>
+    <!-- TODO vanno inserite le varie actions ed implementate le rispettive funzioni -->
+    <button>Promuovi Admin</button>
+    <button>Banna Utente</button>
+  </div>
+
+
+  <!-- TODO Va fatta una migliore ripartizione del codice frontend -->
+</div>
+
+<!-- JS principale -->
+<script src="app.js"></script>
+</body>
+</html>
