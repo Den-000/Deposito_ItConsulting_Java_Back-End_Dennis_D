@@ -83,8 +83,8 @@
     top: 0;
     height: 60px;
     display: flex;
+    flex-direction: row; /* layout orizzontale */
     align-items: center; /* allinea verticalmente */
-    justify-content: space-between; /* separa elementi */
     padding: 0 20px;
     border-bottom: 1px solid var(--border);
     backdrop-filter: blur(10px); /* effetto glass */
@@ -99,18 +99,41 @@
     background: var(--card);
     color: var(--text);
   }
+
+  /* input resta a sinistra */
+  .search {
+    width: 40%;
+  }
+
+  /* spinge tutto il resto a destra */
+  .topbar-right {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+
+  /* bottone più ordinato */
+  .topbar_btn {
+    padding: 6px 12px;
+    border-radius: 8px;
+    width: auto;
+  }
   
   /* =========================
      AREA PRINCIPALE
      ========================= */
   .main {
-    margin-left: 260px; /* spazio per sidebar */
-    margin-top: 70px; /* spazio per topbar */
-    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-column-gap: 20px;
+    grid-row-gap: 20px;
     width: 100%;
-    display: flex; /* layout colonne */
-    gap: 20px; /* spazio tra colonne */
-  }
+    margin-left: 270px; /* spazio per sidebar */
+    margin-right: 10px;
+    margin-top: 70px; /* spazio per topbar */
+    }
   
   /* singola colonna (lista task) */
   .column {

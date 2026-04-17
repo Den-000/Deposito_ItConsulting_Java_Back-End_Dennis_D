@@ -1,9 +1,10 @@
 package com.example.demo.model;
 
+import java.time.LocalDateTime;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -11,19 +12,16 @@ import lombok.NoArgsConstructor;
 
 @Entity
 @Data
-@Table(name = "ticket_types")
-@AllArgsConstructor
+@Table(name = "check_in_log")
 @NoArgsConstructor
-public class TicketType {
+@AllArgsConstructor
+public class CheckInLog {
 
-    @Id @GeneratedValue
+    @Id
+    @GeneratedValue
     private Long id;
 
-    private String name; // VIP, STANDARD
-    private double price;
-    private int totalSeats;
-    private int availableSeats;
+    private String qrCode;
 
-    @ManyToOne
-    private Event event;
+    private LocalDateTime checkInTime;
 }

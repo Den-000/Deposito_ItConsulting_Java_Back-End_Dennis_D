@@ -16,14 +16,14 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "events") // nome tabella
-
-@Data // Lombok: genera getter, setter, toString, ecc.
+@Table(name = "events")
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class Event {
 
-    @Id @GeneratedValue
+    @Id
+    @GeneratedValue
     private Long id;
 
     private String name;
@@ -33,6 +33,9 @@ public class Event {
 
     @Enumerated(EnumType.STRING)
     private EventStatus status;
+
+    private int maxSeats;
+    private int bookedSeats;
 
     @ManyToOne
     private Location location;

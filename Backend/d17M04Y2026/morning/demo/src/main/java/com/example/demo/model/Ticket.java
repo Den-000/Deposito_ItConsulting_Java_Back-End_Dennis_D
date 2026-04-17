@@ -30,6 +30,8 @@ public class Ticket {
 
     private LocalDateTime purchaseDate;
 
+    private String email;
+
     @ManyToOne
     private MyUser user;
 
